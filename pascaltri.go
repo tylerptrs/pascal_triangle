@@ -2,15 +2,19 @@ package main
 
 import "fmt"
 
-var factVal uint64 = 1
-var i, n, k int
-var x uint64
-
 func factorial(n int) uint64 {
-	for i := 1; i <= n; i++ {
-		factVal *= uint64(i)
+	var factVal uint64 = 1
+	switch n {
+	case 0:
+		return 1
+	case 1:
+		return 1
+	default:
+		for i := 1; i <= n; i++ {
+			factVal *= uint64(i)
+		}
+		return factVal
 	}
-	return factVal
 }
 
 // n choose k
@@ -19,6 +23,7 @@ func factorial(n int) uint64 {
 // k = position
 
 func nChooseK(n, k int) uint64 {
+	var x uint64
 	x = factorial(n) / (factorial(k) * factorial(n-k))
 	return x
 }
@@ -36,8 +41,10 @@ func main() {
 		for s := rows - j; s > 0; s-- { //this is to enter correct spacing, to make it look like a triange
 			print(" ")
 		}
+
 		for m := 0; m <= j; m++ { //m should be the position in the row
 			print(nChooseK(j, m))
+
 		}
 		print("\n")
 	}
