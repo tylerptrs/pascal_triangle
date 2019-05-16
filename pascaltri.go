@@ -31,21 +31,21 @@ func nChooseK(n, k int) uint64 {
 var rows int
 
 func main() {
-	print("How many lines of Pascal's Triange would you like printed?")
+	fmt.Print("How many lines of Pascal's Triange would you like printed?")
 	fmt.Scan(&rows)
 	rows = rows - 1
 	if rows == 0 {
-		print("0 rows is no triange")
+		fmt.Println("0 rows is no triange")
 	}
 	for j := 0; j <= rows; j++ { //this for cycles through rows.  J would be the row counter
 		for s := rows - j; s > 0; s-- { //this is to enter correct spacing, to make it look like a triange
-			print(" ")
+			fmt.Print(" ")
 		}
 
 		for m := 0; m <= j; m++ { //m should be the position in the row
-			print(nChooseK(j, m))
+			fmt.Printf("%v ", nChooseK(j, m))
 
 		}
-		print("\n")
+		fmt.Println()
 	}
 }
