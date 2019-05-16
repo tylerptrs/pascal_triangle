@@ -13,6 +13,11 @@ func factorial(n int) uint64 {
 	return factVal
 }
 
+// n choose k
+//(n,k) = n!/(k!(n-k)!)
+// n = row
+// k = position
+
 func nChooseK(n, k int) uint64 {
 	x = factorial(n) / (factorial(k) * factorial(n-k))
 	return x
@@ -27,15 +32,13 @@ func main() {
 	if rows == 0 {
 		print("0 rows is no triange")
 	}
-	for j := 0; j <= rows; j++ {
-		for s := rows - j; s > 0; s-- {
+	for j := 0; j <= rows; j++ { //this for cycles through rows.  J would be the row counter
+		for s := rows - j; s > 0; s-- { //this is to enter correct spacing, to make it look like a triange
 			print(" ")
 		}
-		print(nChooseK(row))
+		for m := 0; m <= j; m++ { //m should be the position in the row
+			print(nChooseK(j, m))
+		}
+		print("\n")
 	}
 }
-
-// n choose k
-//(n,k) = n!/(k!(n-k)!)
-// n = row
-// k = position
