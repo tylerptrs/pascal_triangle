@@ -28,9 +28,8 @@ func nChooseK(n, k int) uint64 {
 	return x
 }
 
-var rows int
-
 func main() {
+	var rows int
 	fmt.Print("How many lines of Pascal's Triange would you like printed?")
 	fmt.Scan(&rows)
 
